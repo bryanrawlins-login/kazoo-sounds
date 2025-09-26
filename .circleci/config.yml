@@ -74,7 +74,8 @@ jobs:
           command: |
             cd $BUILD_ROOT
             echo " - generate build version and changelog"
-            ./package_docs
+            echo "${VERSION}" > $BUILD_ROOT/SOURCES/VERSION
+            echo "${CIRCLE_TAG:-$CIRCLE_SHA1}" > $BUILD_ROOT/SOURCES/CHANGELOG
       -
         run:
           name: 'Copy kazoo source for packaging'
@@ -211,7 +212,8 @@ jobs:
           command: |
             cd $BUILD_ROOT
             echo " - generate build version and changelog"
-            ./package_docs
+            echo "${VERSION}" > $BUILD_ROOT/SOURCES/VERSION
+            echo "${CIRCLE_TAG:-$CIRCLE_SHA1}" > $BUILD_ROOT/SOURCES/CHANGELOG
       -
         run:
           name: 'Copy kazoo source for packaging'
@@ -348,7 +350,8 @@ jobs:
           command: |
             cd $BUILD_ROOT
             echo " - generate build version and changelog"
-            ./package_docs
+            echo "${VERSION}" > $BUILD_ROOT/SOURCES/VERSION
+            echo "${CIRCLE_TAG:-$CIRCLE_SHA1}" > $BUILD_ROOT/SOURCES/CHANGELOG
       -
         run:
           name: 'Copy kazoo source for packaging'
